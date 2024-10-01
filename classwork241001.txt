@@ -1,0 +1,140 @@
+Microsoft Windows [版本 10.0.19043.1766]
+(c) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+C:\Users\User>cd \xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -u root --default-character-set=utf8
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.011 sec)
+
+MariaDB [(none)]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root --default-character-set=utf8<d:\stand.sql
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| stud_test          |
+| test               |
++--------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [(none)]> use stud_test
+Database changed
+MariaDB [stud_test]> drop
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [stud_test]> show table
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [stud_test]> Show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| stud_test          |
+| test               |
++--------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [stud_test]> show tables;
++---------------------+
+| Tables_in_stud_test |
++---------------------+
+| cour_table          |
+| dept                |
+| order_table         |
+| sel_table           |
+| stud_table          |
+| tea_table           |
+| users               |
++---------------------+
+7 rows in set (0.000 sec)
+
+MariaDB [stud_test]> use test;
+Database changed
+
+MariaDB [test]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| stud_test          |
+| test               |
++--------------------+
+6 rows in set (0.000 sec)
+
+MariaDB [test]> use stud_test
+Database changed
+MariaDB [stud_test]> drop table dept;
+Query OK, 0 rows affected (0.264 sec)
+
+MariaDB [stud_test]> create database dept
+    -> ;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [stud_test]> use dept
+Database changed
+MariaDB [dept]> show tables;
+Empty set (0.000 sec)
+
+MariaDB [dept]> CREATE TABLE dept(
+    -> `sno` int(11) NOT NULL AUTO_INCREMENT,
+    -> `1` varchar(6) DEFAULT NULL,
+    -> `MAXMAI` varchar(255) DEFAULT NULL,
+    -> PRIMARY KEY (`sno`)
+    -> )Engine=InnoDB AUTO_INCREMENT=5;
+Query OK, 0 rows affected (0.289 sec)
+
+MariaDB [dept]> Describe dept;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| sno    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| 1      | varchar(6)   | YES  |     | NULL    |                |
+| MAXMAI | varchar(255) | YES  |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+3 rows in set (0.010 sec)
+
+MariaDB [dept]>
