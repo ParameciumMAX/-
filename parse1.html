@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(function()
+        {
+            stock_id = document.getElementById("no").value;
+        });
+        function test()
+        {
+            stock_id = $("#no").val();
+            pass = $("#pass").val();
+            alert(stock_id + "  " + pass)
+            $.post('parse1.php',
+                {
+                    id : stock_id,
+                    pass:pass,
+                    out : 'cheak'
+                },
+                function(data){     //資料回傳
+                    alert("begin" + data);
+                }
+            )
+        }
+    </script>
+</head>
+<body>
+    帳號<input type=text id="no" value="1477">
+    密碼<input type=text id="pass">
+    <button onclick="test()">執行</button>
+</body>
+</html>
